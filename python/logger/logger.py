@@ -36,7 +36,15 @@ class logger:
     """
     def __write(self, level, message):
 
-        self.f.write(message)
+        # 時刻取得
+        d = datetime.now()
+
+        # ログフォーマット整形
+        logtime = "{0:%a %b %d %X %Y}".format(d)
+        logMessage ="{} [{}] {}\n".format(logtime, level, message)
+
+        # 書き出し
+        self.f.write(logMessage)
 
     
     """
@@ -48,5 +56,17 @@ class logger:
     """
     def debug(self, message):
 
+        # ログメッセージが設定されていない場合はエラー
+        if message == None:
+            return False
+
+        # ログレベル文言を取得
         level = self.logLevel['debug']
+
+        # ログ書き出し
         result = self.__write(level, message)
+
+        if result == True:
+            return True
+        else:
+            return False
