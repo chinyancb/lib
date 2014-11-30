@@ -66,7 +66,22 @@ class logger:
         # ログ書き出し
         result = self.__write(level, message)
 
-        if result == True:
-            return True
-        else:
+        # ログ書き出しに失敗した場合
+        if result == False:
             return False
+
+        return True
+
+
+    """
+    __del__
+    デストラクタ
+    ファイルクローズ
+    @access：public
+    @param：void
+    @return：void
+    """
+    def __del__(self):
+        
+        self.f.close()
+
