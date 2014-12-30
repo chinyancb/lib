@@ -49,6 +49,7 @@ class logger:
     
     """
     debug
+    debugログ出力
     @access public
     @param：message ログ出力内容
     @return :　正常系：True
@@ -62,6 +63,115 @@ class logger:
 
         # ログレベル文言を取得
         level = self.logLevel['debug']
+
+        # ログ書き出し
+        result = self.__write(level, message)
+
+        # ログ書き出しに失敗した場合
+        if result == False:
+            return False
+
+        return True
+
+
+
+    """
+    info
+    infoログ出力
+    @access public
+    @param：message ログ出力内容
+    @return :　正常系：True
+            ： 異常系：False
+    """
+    def info(self, message):
+
+        # ログメッセージが設定されていない場合はエラー
+        if message == None:
+            return False
+
+        # ログレベル文言を取得
+        level = self.logLevel['info']
+
+        # ログ書き出し
+        result = self.__write(level, message)
+
+        # ログ書き出しに失敗した場合
+        if result == False:
+            return False
+
+        return True
+
+
+    """
+    warn
+    warnログ出力
+    @access public
+    @param：message ログ出力内容
+    @return :　正常系：True
+            ： 異常系：False
+    """
+    def warn(self, message):
+
+        # ログメッセージが設定されていない場合はエラー
+        if message == None:
+            return False
+
+        # ログレベル文言を取得
+        level = self.logLevel['warning']
+
+        # ログ書き出し
+        result = self.__write(level, message)
+
+        # ログ書き出しに失敗した場合
+        if result == False:
+            return False
+
+        return True
+
+
+    """
+    error
+    errorログ出力
+    @access public
+    @param：message ログ出力内容
+    @return :　正常系：True
+            ： 異常系：False
+    """
+    def error(self, message):
+
+        # ログメッセージが設定されていない場合はエラー
+        if message == None:
+            return False
+
+        # ログレベル文言を取得
+        level = self.logLevel['error']
+
+        # ログ書き出し
+        result = self.__write(level, message)
+
+        # ログ書き出しに失敗した場合
+        if result == False:
+            return False
+
+        return True
+
+
+    """
+    crit
+    critログ出力
+    @access public
+    @param：message ログ出力内容
+    @return :　正常系：True
+            ： 異常系：False
+    """
+    def crit(self, message):
+
+        # ログメッセージが設定されていない場合はエラー
+        if message == None:
+            return False
+
+        # ログレベル文言を取得
+        level = self.logLevel['crit']
 
         # ログ書き出し
         result = self.__write(level, message)
