@@ -1,0 +1,17 @@
+# USAGE
+
+---------------------------------
+# coding=utf-8
+
+from logger import logger
+
+
+path = './test.log'
+logger = logger(path)
+
+result = logger.debug('debug')
+result = logger.info('info')
+result = logger.warn('warning')
+result = logger.error('error')
+result = logger.crit('critical')
+---------------------------------
